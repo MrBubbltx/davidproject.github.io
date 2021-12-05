@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Dear David.</title>
+</head>
+<style>
+    html{
+        font-family: Poppins;
+    }
+    body{
+        background-color: black;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .hero{
+        display: flex;
+        width: 100%;
+        height: 961px;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+    }
+    .about{
+        width: 100%;
+        height: 961px;
+        background-color: black;
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+        flex-direction: row;
+        opacity: 0;
+        transition: 0.5s cubic-bezier(0.3, 0.67, 0, 0.83);
+    }
+    .watch{
+        width: 100%;
+        height: 961px;
+        background-color: black;
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+        flex-direction: row;
+        opacity: 0;
+        transition: 0.5s cubic-bezier(0.3, 0.67, 0, 0.83);
+    }
+    .about.active{
+        opacity: 1;
+        display: flex;
+        transition: 0.5s cubic-bezier(0.3, 0.67, 0, 0.83);
+    }
+    .watch.active{
+        opacity: 1;
+        display: flex;
+        transition: 0.5s cubic-bezier(0.3, 0.67, 0, 0.83);
+    }
+    .textcont p{
+        font-family: Poppins;
+        font-size: 100px;
+        color: #ffffffff;
+        font-weight: 700;
+        transform: scale(1);
+        animation: texts-drift 5s cubic-bezier(0.3, 0.67, 0, 0.83);
+    }
+    .textcont{
+        position: absolute;
+    }
+    .textcont p span{
+        color: rgb(255, 0, 0);
+        animation: texts 5s ease-in-out;
+    }
+    @keyframes texts {
+        0%{
+            color: #ffffff;
+        }
+        100%{
+            color:rgb(255, 0, 0);
+        }
+    }
+    @keyframes texts-drift {
+        0%{
+            transform: scale(1.5);
+            opacity: 0;
+        }
+        30%{
+            opacity: 1;
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    .leftside p span{
+        color: rgb(255, 0, 0);
+    }
+    .leftside p{
+        font-family: Poppins;
+        font-size: 80px;
+        color: #ffffffff;
+        font-weight: 700;
+        transition: 0.5s cubic-bezier(0.3, 0.67, 0, 0.83);
+    }
+    .leftside{
+        width: 49%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .rightside{
+        width: 49%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .rightsidetxt{
+        width: 49%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .leftsidevid{
+        width: 49%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .leftsidevid iframe{
+        border: 1px solid #ffffff;
+        border-radius: 15px;
+    }
+    .leftsidevid a{
+        margin-top: 20px;
+        background-color: rgb(255, 0, 0);
+        padding: 10px 10px;
+        color: #ffffff;
+        font-family: Outfit;
+        font-size: 30px;
+        font-weight: 400;
+        border-radius: 10px;
+        cursor: pointer;
+        user-select: none;
+        text-decoration: none;
+    }
+    .leftside p{
+        color: #ffffff;
+        font-size: 80px
+    }
+    .rightside p{
+        color: #ffffff;
+        font-size: 40px
+    }
+    .rightside hr{
+        width: 200px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .rightsidetxt p:nth-child(1){
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        font-family: Outfit;
+        font-size: 50px;
+    }
+    .rightsidetxt p{
+        color: #ffffff;
+        font-size: 80px;
+    }
+    .rightsidetxt p:nth-child(2){
+        font-weight: 700;
+        font-size: 80px;
+    }
+    .rightsidetxt p:nth-child(2) span{
+        color: rgb(255, 0, 0);
+    }
+    .rightside p:nth-child(1){
+        color: rgb(255, 0, 0);
+        font-weight: 700;
+    }
+    .rightside p:nth-child(4){
+        color: rgb(255, 0, 0);
+    }
+    .rightside p:nth-child(8){
+        color: rgb(255, 0, 0);
+    }
+    .rightside p:nth-child(10){
+        color: rgb(255, 0, 0);
+    }
+    .divider{
+        width: 5px;
+        height: 90%;
+        border-radius: 2px;
+        background-color: #ffffff;
+    }
+    ::-webkit-scrollbar{
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track{
+        background-color: rgb(0, 0, 0);
+    }
+    ::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.555);
+    }
+</style>
+<body onload="loadin()">
+    <div class="container">
+        <div class="hero">
+            <div class="textcont">
+                <p>De<span>ar</span> Da<span>vid</span>.</p>
+            </div>
+        </div>
+        <div class="about">
+            <div class="leftside">
+                <p data-aos="fade-down" data-aos-duration="3000" data-aos-once="true">De<span>ar</span> Da<span>vid</span>.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="rightside" data-aos="fade-down" data-aos-duration="3000" data-aos-once="true" data-aos-delay="2000">
+                <p>Dear David</p>
+                <hr />
+                <p>It was written by</p>
+                <p>Magdadaro</p>
+                <hr />
+                <p>Many of the other people</p>
+                <hr />
+                <p>Actors: Aquino, Karan, Loperez</p>
+                <p>Editor: Abatayo</p>
+                <p>Artist: Las Marias</p>
+            </div>
+        </div>
+        <div class="watch">
+            <div class="leftsidevid">
+                <iframe src="https://drive.google.com/file/d/13uQ85LkHHNwM2yv92TO8HXM7t9VbVSwU/preview" width="650" height="490" allow="autoplay"></iframe>
+                <a href="https://drive.google.com/file/d/13uQ85LkHHNwM2yv92TO8HXM7t9VbVSwU">Watch In Big Screen</a>
+            </div>
+            <div class="rightsidetxt">
+                <p>You can watch it!</p>
+                <p data-aos="fade-in" data-aos-duration="3000" data-aos-once="true">De<span>ar</span> Da<span>vid</span>.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    let hero = document.querySelector('.hero');
+    let about = document.querySelector('.about');
+    let watch = document.querySelector('.watch');
+
+    function loadin(){
+        setTimeout(function(){
+            about.classList.add('active');
+        }, 5000);
+        setTimeout(function(){
+            watch.classList.add('active');
+            AOS.init();
+        }, 5500);
+    }
+</script>
+</html>
